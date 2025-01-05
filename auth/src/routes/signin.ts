@@ -27,7 +27,7 @@ router.post(
         "Something went wrong when trying to log you in"
       );
     }
-    const passMatch = Password.compare(existingUser.password, password);
+    const passMatch = await Password.compare(existingUser.password, password);
     if (!passMatch) {
       throw new BadRequestError(
         "Something went wrong when trying to log you in"
