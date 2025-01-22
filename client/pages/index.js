@@ -1,4 +1,15 @@
-const Home = () => {
-  return <h1>Home Page</h1>;
+import axios from "axios";
+const LandingPage = ({ currentUser }) => {
+  console.log(currentUser);
+  axios.get("https://ticketing.dev/api/users/currentuser").catch((err) => {
+    console.log(err.message);
+  });
+
+  return <h1>Landing Page</h1>;
 };
-export default Home;
+
+LandingPage.getInitialProps = () => {
+  return { color: "red" };
+};
+
+export default LandingPage;
